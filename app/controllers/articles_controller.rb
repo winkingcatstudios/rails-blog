@@ -1,4 +1,4 @@
-class ArticlesController < ActionController::Base
+class ArticlesController < ApplicationController
   def show
     @article = Article.find(params[:id])
   end
@@ -8,11 +8,29 @@ class ArticlesController < ActionController::Base
   end
 
   def new
+    @article = Article.new
   end
 
   def create
     @article = Article.new(params.require(:article).permit(:title, :description))
-    @article.save
-    redirect_to article_path(@article)  # 'redirect_to @article' works too
+    if @article.save
+      # also works: redirect_to article_path(@article)
+      redirect_to @article, notice: "Successfully created article."
+    else
+      render "new"
+    end
+  end
+
+  def edit
+    @article = Article.find(params[:id])
+  end
+
+  def update
+    @article = Article.find(params[:id])
+    if @article.update(params.require(:article).permit(:title, :description))
+      redirect_to @article, notice: "Successfully updated article."
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 end
