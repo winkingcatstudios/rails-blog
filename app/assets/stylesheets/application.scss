@@ -1,1 +1,34 @@
 @import "bootstrap";
+
+.navbar {
+  background-color: black !important;
+}
+
+.nav-link {
+  color: white !important;
+}
+
+#logo {
+  float: left;
+  font-size: 1.7em;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+
+#home-contrainer {
+  margin-top: 25px;
+}
+
+.jumbotron {
+  background-image: asset-url("unsplash_gavel.avif");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 60vh;
+
+  h1 {
+    margin-bottom: 250px;
+  }
+}
