@@ -26,3 +26,5 @@ Things you may want to cover:
 * Completed reference: https://github.com/udemyrailscourse/alpha-blog-11-2017-5.1.4
 
 * Using Bootstrap
+
+* virtualbox: rails server -b (ip)
