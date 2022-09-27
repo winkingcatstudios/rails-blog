@@ -28,3 +28,5 @@ Things you may want to cover:
 * Using Bootstrap
 
 * virtualbox: rails server -b (ip)
+
+* formatter: https://aleksandar.xyz/blog/formatting-ruby-and-erb-in-vscode/
