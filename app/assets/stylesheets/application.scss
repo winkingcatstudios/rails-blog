@@ -27,7 +27,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
-  height: 60vh;
+  height: 75vh;
 
   .jumbotron-text {
     position: absolute;
@@ -46,5 +46,10 @@
   bottom: 0;
   color: white;
   text-align: center;
-  background-color: rgb(25,135,84);
+  background-color: rgb(25, 135, 84);
+
+  p {
+    margin-top: 15px;
   }
+}
+
