@@ -1,2 +1,14 @@
 <h1 class="text-center mt-4">Bob Loblaw Law Bombs</h1>
+<div class="flickr_pagination">
+  <div class="page_info mb-2">
+    <%= page_entries_info @articles %>
+  </div>
+  <%= will_paginate @articles, :container => false %>
+</div>
 <%= render "article" %>
+<div class="flickr_pagination">
+  <div class="page_info mb-2">
+    <%= page_entries_info @articles %>
+  </div>
+  <%= will_paginate @articles, :container => false %>
+</div>
