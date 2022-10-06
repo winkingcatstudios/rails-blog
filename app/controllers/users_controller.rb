@@ -5,6 +5,10 @@ class UsersController < ApplicationController
     @articles = @user.articles
   end
 
+  def index
+    @users = User.all
+  end
+
   def new
     @user = User.new
   end
@@ -12,7 +16,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to articles_path, notice: "Welcome #{@user.username}, you have successfully signed up"
+      redirect_to @user, notice: "Welcome #{@user.username}, you have successfully signed up"
     else
       render "new", status: :unprocessable_entity
     end
@@ -23,7 +27,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      redirect_to articles_path, notice: "Your account was updated successfully"
+      redirect_to @user, notice: "Your account was updated successfully"
     else
       render "edit", status: :unprocessable_entity
     end
