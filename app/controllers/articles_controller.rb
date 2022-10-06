@@ -19,7 +19,7 @@ class ArticlesController < ApplicationController
       # also works: redirect_to article_path(@article)
       redirect_to @article, notice: "Successfully created article."
     else
-      render "new"
+      render "new", status: :unprocessable_entity
     end
   end
 
