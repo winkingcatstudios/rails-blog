@@ -11,4 +11,6 @@ class User < ApplicationRecord
                     length: { minimum: 3, maximum: 254 },
                     # Verify email with ruby's standard library regex.
                     format: { with: URI::MailTo::EMAIL_REGEXP }
+
+  has_secure_password
 end
