@@ -5,7 +5,7 @@
   </div>
   <%= will_paginate @articles, :container => false %>
 </div>
-<%= render "article" %>
+<%= render "article", obj: @articles %>
 <div class="flickr_pagination">
   <div class="page_info mb-2">
     <%= page_entries_info @articles %>
