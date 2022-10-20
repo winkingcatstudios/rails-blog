@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:destroy, :edit, :show, :update]
+  before_action :require_user, only: [:edit, :update]
+  before_action :require_same_user, only: [:edit, :update]
 
   def show
     @user_articles = @user.articles.paginate(page: params[:page], per_page: 2)
@@ -33,14 +35,21 @@ class UsersController < ApplicationController
       render "edit", status: :unprocessable_entity
     end
   end
-end
 
-private
+  private
 
-def set_user
-  @user = User.find(params[:id])
-end
+  def set_user
+    @user = User.find(params[:id])
+  end
 
-def user_params
-  params.require(:user).permit(:username, :email, :password)
+  def user_params
+    params.require(:user).permit(:username, :email, :password)
+  end
+
+  def require_same_user
+    if current_user != @user
+      flash[:alert] = "You can only edit your profile"
+      redirect_to @user
+    end
+  end
 end
