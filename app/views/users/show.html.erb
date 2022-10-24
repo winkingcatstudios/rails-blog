@@ -1,0 +1,20 @@
+<h1 class="text-center mt-4"><%= @user.username %>'s profile</h2>
+<div class="text-center mt-4">
+  <% if logged_in? && @user == current_user %>
+    <%= link_to "Edit your profile", edit_user_path(@user), class:"btn btn-info" %>
+  <% end %>
+</div>
+<h3 class="text-center mt-4">Articles</h2>
+<div class="flickr_pagination">
+  <div class="page_info mb-2">
+    <%= page_entries_info @user_articles  %>
+  </div>
+  <%= will_paginate @user_articles , :container => false %>
+</div>
+<%= render "articles/article", obj: @user_articles %>
+<div class="flickr_pagination">
+  <div class="page_info mb-2">
+    <%= page_entries_info @user_articles  %>
+  </div>
+  <%= will_paginate @user_articles , :container => false %>
+</div>
