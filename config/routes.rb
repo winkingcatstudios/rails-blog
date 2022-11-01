@@ -14,4 +14,6 @@ Rails.application.routes.draw do
   # individually exposed: 'resources :articles, only: [:show, :index, :new, :create, :edit, :update, :destroy]'
   resources :articles
   resources :users, except: [:new]
+
+  resources :categories, except: [:destroy]
 end
